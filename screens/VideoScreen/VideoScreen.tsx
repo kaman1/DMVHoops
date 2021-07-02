@@ -5,6 +5,7 @@ import video from "../../assets/data/video.json";
 import videos from "../../assets/data/videos.json";
 import { AntDesign } from "@expo/vector-icons";
 import VideoListItem from "../../components/VideoListItem";
+import VideoPlayer from "../../components/VideoPlayer";
 
 const VideoScreen = () => {
   //Minute from Video
@@ -19,9 +20,9 @@ const VideoScreen = () => {
     viewsString = (video.views / 1_000).toFixed(1) + "k";
   }
   return (
-    <View View>
+    <View>
       {/** video Player */}
-      <Image source={{ uri: video.thumbnail }} style={styles.videoPlayer} />
+      <VideoPlayer videoURI={video.videoUrl} thumbnailURI={video.thumbnail} />
       <View style={styles.middleContainer}>
         <Text style={styles.tags}>{video.tags} </Text>
         <Text style={styles.title}>{video.title} </Text>
